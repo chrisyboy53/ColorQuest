@@ -74,10 +74,18 @@ p {
   background: url(images/game_bg.png);
 }
 
+  #gameover-btn {
+    background: url(images/)
+  }
+
 #game-scene.out {
   opacity: 0;
   top: 0;
   -webkit-transition-delay: .5s;
+}
+
+#game-scene.out, #summary-scene.in {
+  transition-delay: .5s;
 }
 
 #summary-scene {

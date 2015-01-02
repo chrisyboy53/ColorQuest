@@ -14,8 +14,19 @@
 	</header>
 	<section id="game">
 		<div id="game-scene" class="scene out">
-			<a href="#" id="gameover-btn">Game Over</a>
-			<a href="#" id="finish-btn">Finish</a>
+			<div id="stage">Stage 1</div>
+			<div id="quest" class="quest">
+				<div id="quest-composition" class="composition"></div>
+			</div>
+			<div id="element-template">
+				<div class="pattern" data-pattern="1"></div>
+			</div>
+
+			<div id="your-composition"></div>
+			<div id="deck" class="deck"></div>
+
+			<!-- <a href="#" id="gameover-btn">Game Over</a> -->
+			<!-- <a href="#" id="finish-btn">Finish</a> -->
 		</div>
 		<div id="start-scene" class="scene">
 			<a href="#" id="start-btn" class="button">Start Game</a>
@@ -40,7 +51,15 @@
 			<p>This game is an example for the HTML5 Games Hotshot book. Free for person and commercial use.</p>
 		</div>
 	</footer>
-	<div id="element-template"></div>
+	<div id="element-template">
+		<div class="pattern-slot">
+			<div class="pattern" data-pattern="1"></div>
+		</div>
+	</div>
+	<script src='js/patch.js'></script>
+	<script type="text/javascript" src="js/composition-view.js"></script>
+	<script src='js/composition.js'></script>
+	<script src='js/quest.js'></script>
 	<script type="text/javascript" src="js/scene.js"></script>
 	<script type="text/javascript" src="js/game.js"></script>
 </body>

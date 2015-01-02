@@ -11,6 +11,11 @@
 	var game = this.colorQuestGame = this.colorQuestGame || {};
 
 	game.flow = {
+		currentLevel: 3,
+		startLevel: function() {
+			game.quest = new game.Quest(this.currentLevel);
+			game.gameScene.visualise(game.quest);
+		},
 		startOver: function() {
 			game.startScene.hide();
 			game.summaryScene.hide();
@@ -31,6 +36,10 @@
 			game.startScene.hide();
 			game.summaryScene.hide();
 			game.gameScene.show();
+
+			game.compositionView.node.removeAllChildren();
+			this.startLevel();
+
 		},
 		finishLevel: function() {
 			game.gameScene.hide();
@@ -43,6 +52,7 @@
 		game.summaryScene.handleInput();
 		game.gameoverScene.handleInput();
 		game.gameScene.handleInput();
+		game.flow.startLevel();
 	};
 
 	init();

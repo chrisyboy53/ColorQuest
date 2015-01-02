@@ -17,14 +17,49 @@
 	var gameScene = game.gameScene = Object.create(scene);
 	gameScene.node = document.getElementById('game-scene');
 	gameScene.handleInput = function() {
-		document.getElementById('finish-btn').onclick = function () {
-			game.flow.finishLevel();
-		};
+		// document.getElementById('finish-btn').onclick = function () {
+		// 	game.flow.finishLevel();
+		// };
 
-		document.getElementById('gameover-btn').onclick = function() {
-			game.flow.gameOver();
-		};
+		// document.getElementById('gameover-btn').onclick = function() {
+		// 	game.flow.gameOver();
+		// };
+
 	};
+
+	gameScene.visualise = function(quest) {
+		var questData = quest.data;
+		var patternsToShow = [];
+		for (var i in questData) {
+			for (var j in questData[i]) {
+				patternsToShow.push(questData[i][j]);
+			}
+		}
+
+		var questCompositionNode = document.getElementById('quest-composition');
+		questCompositionNode.removeAllChildren();
+
+		for (var i in patternsToShow) {
+			var patternNode = document.querySelector('#element-template .pattern').cloneNode(/*clone children*/true);
+			patternNode.setAttribute('data-pattern', patternsToShow[i]);
+			questCompositionNode.appendChild(patternNode);
+		}
+
+		patternsToShow.sort(function(a, b) {
+			return Math.random() - 0.5;
+		});
+
+		var deckNode = document.getElementById('deck');
+		deckNode.removeAllChildren();
+
+		for (var i in patternsToShow) {
+			var patternSlotNode = document.querySelector('#element-template .pattern-slot').cloneNode(/*clone children*/true);
+			patternSlotNode.querySelector('.pattern').setAttribute('data-pattern', patternsToShow[i]);
+			deckNode.appendChild(patternSlotNode);
+		}
+
+	};
+
 
 	var startScene = game.startScene = Object.create(scene);
 	startScene.node =  document.getElementById('start-scene');
