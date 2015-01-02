@@ -3,3 +3,6 @@ Node.prototype.removeAllChildren = function() {
 		this.removeChild(this.firstChild);
 	}
 };
+
+NodeList.prototype.forEach = Array.prototype.forEach;
+HTMLCollection.prototype.forEach = Array.prototype.forEach;

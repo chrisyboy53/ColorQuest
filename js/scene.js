@@ -17,6 +17,23 @@
 	var gameScene = game.gameScene = Object.create(scene);
 	gameScene.node = document.getElementById('game-scene');
 	gameScene.handleInput = function() {
+
+		document.querySelectorAll('#deck .pattern').forEach(function(elm) {
+			elm.onclick = function() {
+				var pattern = elm.getAttribute('data-pattern');
+				elm.style.display = 'none';
+
+				game.compositionView.selectPattern(pattern);
+			};
+		});
+
+		var undoBtn = document.getElementById('undo-button');
+		undoBtn.onclick = function(e) {
+			game.compositionView.undo();
+			e.preventDefault();
+		};
+
+
 		// document.getElementById('finish-btn').onclick = function () {
 		// 	game.flow.finishLevel();
 		// };

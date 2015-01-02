@@ -14,7 +14,10 @@
 		currentLevel: 3,
 		startLevel: function() {
 			game.quest = new game.Quest(this.currentLevel);
+			game.compositionSeq = [];
+			game.composition = new game.Composition();
 			game.gameScene.visualise(game.quest);
+			game.gameScene.handleInput();
 		},
 		startOver: function() {
 			game.startScene.hide();
