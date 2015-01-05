@@ -1,12 +1,3 @@
-(function() {
-	// Entry Point
-	var init = function() {
-
-	};
-
-	init(); // start the game
-})(); // self-executing function.
-
 (function(){
 	var game = this.colorQuestGame = this.colorQuestGame || {};
 
